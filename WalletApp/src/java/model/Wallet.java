@@ -55,6 +55,8 @@ public class Wallet {
     }
 
     public void addBalance(double balanceToAdd) {
+        if(this.balance + balanceToAdd < 0)
+            throw new IllegalArgumentException("El monto a añadir no puede dejar el balance en un valor menor a cero");
         this.balance += balanceToAdd;
     }
     
