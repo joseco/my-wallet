@@ -33,4 +33,19 @@ public class WalletTest {
         assertEquals(expected, actual, delta);
         
     }
+    
+    @Test
+    public void addWalletNegativeBalance(){
+        
+        Wallet wallet = new Wallet("123466","Jhon Smith", "5555", 50);
+        wallet.addBalance(-30);
+
+        double expected = 20;
+        double actual = wallet.getBalance();
+        double delta = 0;
+        
+        assertEquals(expected, actual, delta);
+         
+        
+    }
 }
