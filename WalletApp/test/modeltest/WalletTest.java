@@ -48,4 +48,11 @@ public class WalletTest {
          
         
     }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void addWalletNegativeBalanceGreatherThanActual(){
+        
+        Wallet wallet = new Wallet("123466","Jhon Smith", "5555", 50);
+        wallet.addBalance(-500);
+    }
 }
