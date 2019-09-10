@@ -47,7 +47,7 @@ public class WalletManagerTest {
         Wallet originWallet = manager.getWalletFromAccountCode(originAccountCode);
         double originInitialBalance = originWallet.getBalance();        
         
-        String destinationAccountCode = "7644546";
+        String destinationAccountCode = "7452130";
         Wallet destinationWallet = manager.getWalletFromAccountCode(destinationAccountCode);
         double destinationInitialBalance = destinationWallet.getBalance();
         
@@ -57,7 +57,7 @@ public class WalletManagerTest {
         manager.trasnferBalanceBetweenWallets(originAccountCode, destinationAccountCode, amountToTransfer);
         
         double actualOriginBalance = originWallet.getBalance();
-        double actualDestinationBalance = originWallet.getBalance();
+        double actualDestinationBalance = destinationWallet.getBalance();
         
         double delta = 0.0;
         
