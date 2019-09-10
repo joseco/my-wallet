@@ -23,7 +23,7 @@ public class WalletManagerTest {
         Wallet wallet = manager.getWalletFromAccountCode(expectedAccountCode);
         
         assertNotNull(wallet);
-        String actualAccountNumber = wallet.getAcountCode();
+        String actualAccountNumber = wallet.getAccountCode();
         
         assertEquals(expectedAccountCode, actualAccountNumber);
     }

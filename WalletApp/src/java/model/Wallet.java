@@ -5,22 +5,24 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author josec
  */
-public class Wallet {
+public class Wallet implements Serializable{
     
-    private String acountCode;
+    private String accountCode;
     private String ownerName;
     private String pin;
-    private double balance;
+    public Double balance;
 
     public Wallet() {
     }
 
-    public Wallet(String acountCode, String ownerName, String pin, double balance) {
-        this.acountCode = acountCode;
+    public Wallet(String accountCode, String ownerName, String pin, double balance) {
+        this.accountCode = accountCode;
         this.ownerName = ownerName;
         this.pin = pin;
         this.balance = balance;
@@ -46,12 +48,12 @@ public class Wallet {
         return balance;
     }
 
-    public String getAcountCode() {
-        return acountCode;
+    public String getAccountCode() {
+        return accountCode;
     }
 
-    public void setAcountCode(String acountCode) {
-        this.acountCode = acountCode;
+    public void setAccountCode(String accountCode) {
+        this.accountCode = accountCode;
     }
 
     public void addBalance(double balanceToAdd) {
