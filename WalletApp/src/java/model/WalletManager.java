@@ -33,7 +33,7 @@ public class WalletManager {
     }
 
     public Wallet getWalletFromAccountCode(String accountNumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return wallets.get(accountNumber);
     }
     
 }
