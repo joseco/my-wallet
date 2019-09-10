@@ -66,4 +66,33 @@ public class WalletManagerTest {
         
     }
     
+    @Test(expected = IllegalArgumentException.class)
+    public void shouldNotTransferBalaceBetweenWallets(){
+        WalletManager manager = WalletManager.getManager();
+        
+        double amountToTransfer = 300;
+        
+        String originAccountCode = "7644546";
+        Wallet originWallet = manager.getWalletFromAccountCode(originAccountCode);
+        double originInitialBalance = originWallet.getBalance();        
+        
+        String destinationAccountCode = "7452130";
+        Wallet destinationWallet = manager.getWalletFromAccountCode(destinationAccountCode);
+        double destinationInitialBalance = destinationWallet.getBalance();
+        
+        double expectedOriginBalace = originInitialBalance;
+        double expectedDestinationBalace = destinationInitialBalance;
+        
+        manager.trasnferBalanceBetweenWallets(originAccountCode, destinationAccountCode, amountToTransfer);
+        
+        double actualOriginBalance = originWallet.getBalance();
+        double actualDestinationBalance = destinationWallet.getBalance();
+        
+        double delta = 0.0;
+        
+        assertEquals(expectedOriginBalace, actualOriginBalance, delta);
+        assertEquals(expectedDestinationBalace, actualDestinationBalance, delta);
+        
+    }
+    
 }
