@@ -28,4 +28,42 @@ public class WalletManagerTest {
         assertEquals(expectedAccountCode, actualAccountNumber);
     }
     
+    @Test
+    public void shouldGetNullWalletFromNonExistentAccountCode(){
+        WalletManager manager = WalletManager.getManager();
+        String expectedAccountCode = "XXXXXXXX";
+        Wallet wallet = manager.getWalletFromAccountCode(expectedAccountCode);
+        
+        assertNull(wallet);
+    }
+    
+    @Test
+    public void shouldTransferBalaceBetweenWallets(){
+        WalletManager manager = WalletManager.getManager();
+        
+        double amountToTransfer = 50;
+        
+        String originAccountCode = "7644546";
+        Wallet originWallet = manager.getWalletFromAccountCode(originAccountCode);
+        double originInitialBalance = originWallet.getBalance();        
+        
+        String destinationAccountCode = "7644546";
+        Wallet destinationWallet = manager.getWalletFromAccountCode(destinationAccountCode);
+        double destinationInitialBalance = destinationWallet.getBalance();
+        
+        double expectedOriginBalace = originInitialBalance - amountToTransfer;
+        double expectedDestinationBalace = destinationInitialBalance + amountToTransfer;
+        
+        manager.trasnferBalanceBetweenWallets(originAccountCode, destinationAccountCode, amountToTransfer);
+        
+        double actualOriginBalance = originWallet.getBalance();
+        double actualDestinationBalance = originWallet.getBalance();
+        
+        double delta = 0.0;
+        
+        assertEquals(expectedOriginBalace, actualOriginBalance, delta);
+        assertEquals(expectedDestinationBalace, actualDestinationBalance, delta);
+        
+    }
+    
 }

@@ -35,5 +35,9 @@ public class WalletManager {
     public Wallet getWalletFromAccountCode(String accountNumber) {
         return wallets.get(accountNumber);
     }
+
+    public void trasnferBalanceBetweenWallets(String originAccountCode, String destinationAccountCode, double amountToTransfer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
