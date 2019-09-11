@@ -35,6 +35,18 @@ public class WalletService {
     }
     
     @POST
+    @Path("/login")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response login(LoginRequestObject obj){
+        Wallet wallet = WalletManager.getManager().getWalletFromAccountCode(obj.getAccountCode());
+        if(wallet == null || !wallet.getPin().equals(obj.getPin()))
+            return Response.status(Response.Status.NOT_FOUND).build();
+        
+        return Response.ok(obj).build();
+    }
+    
+    @POST
     @Path("/add-balance")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addWalletBalance(BalanceRequestObject requestObject){
@@ -47,6 +59,23 @@ public class WalletService {
             return Response.serverError().build();
         }
         
+        return Response.ok().build();
+    }
+    
+    @Path("/transfer")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response transferBetweenWallet(TransferRequestObject param){
+        try {
+           WalletManager manager = WalletManager.getManager();
+           manager.trasnferBalanceBetweenWallets(param.getOriginAccountCode(), 
+                   param.getTargetAccountCode(), param.getAmount());
+            
+        } catch (IllegalArgumentException e) {
+            return Response.status(400).build();
+        }catch(Exception e){
+            return Response.serverError().build();
+        }        
         return Response.ok().build();
     }
     

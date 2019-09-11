@@ -1,0 +1,25 @@
+{
+  "name": "my-wallet",
+  "version": "1.0.0",
+  "description": "Aplicacion de Billetera",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseco/my-wallet.git"
+  },
+  "keywords": [
+    "wallet"
+  ],
+  "author": "Jose Carlos Gutierrez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseco/my-wallet/issues"
+  },
+  "homepage": "https://github.com/joseco/my-wallet#readme",
+  "dependencies": {
+    "cucumber": "^5.1.0"
+  }
+}
