@@ -4,6 +4,6 @@ Feature: Adicion de Saldo a Billetera
    
     Scenario: Adicion de Saldo positivo
 
-        Given El codigo de cuenta de billetera "7644546" y el monto "65"
+        Given El codigo de cuenta de billetera "7644546" y el monto 65
         When Hago la peticion HTTP POST al endpoint de consulta
         Then Obtengo una respuesta http status 200 
