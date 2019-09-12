@@ -6,7 +6,7 @@ Este proyecto comprende de una aplicación web desarrollada en Java que consta d
 
 La mecionada REST API contiene los siguientes endpoints
 
-Obtener una billetera
+Obtener una billetera 
 GET http://localhost:8080/WalletApp/api/wallet/7644546
 
 Acceder a la informacion de una billetera a travez de un accountCode y un PIN
