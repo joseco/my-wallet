@@ -41,9 +41,9 @@ public class WalletService {
     public Response login(LoginRequestObject obj){
         Wallet wallet = WalletManager.getManager().getWalletFromAccountCode(obj.getAccountCode());
         if(wallet == null || !wallet.getPin().equals(obj.getPin()))
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return Response.status(Response.Status.UNAUTHORIZED).build();
         
-        return Response.ok(obj).build();
+        return Response.ok(wallet).build();
     }
     
     @POST
